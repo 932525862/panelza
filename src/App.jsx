@@ -1,9 +1,20 @@
+import Footer from "./components/footer/Footer"
+import Header from "./components/header/Header"
+import StickyContactBar from "./components/stickyContactBar/StickyContactBar"
+import Home from "./pages/home"
+import Products from "./pages/products"
+import Responsibility from "./pages/responsibility"
 
 function App() {
 
   return (
     <>
-    <h1 className="text-amber-400">home</h1>
+      <Header/>
+      <Home/>
+      <Products/>
+      <Responsibility/>
+      <StickyContactBar/>
+      <Footer/>
     </>
   )
 }
