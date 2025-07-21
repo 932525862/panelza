@@ -8,12 +8,11 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
 
   const menu = [
-    { id: "home", label: "Home" },
-    { id: "products", label: "What we do" },
-    { id: "responsibility", label: "Responsibility" },
-    { id: "news", label: "News" },
-    { id: "careers", label: "Careers" },
-    { id: "studies", label: "Case Studies" },
+    { id: "home", label: "Главная" },
+    { id: "products", label: "Что мы делаем" },
+    { id: "ourStory", label: "Наша история" },
+    { id: "projects", label: "Проекты" },
+    { id: "studies", label: "Кейсы" },
   ];
 
   // Scroll active section
@@ -46,7 +45,9 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-[60] transition-all duration-300 ${
-        scrolled ? "bg-[#08162bcb] backdrop-blur-lg shadow-md shadow-[#08162B]" : "bg-[#08162b]"
+        scrolled
+          ? "bg-[#08162bcb] backdrop-blur-lg shadow-md shadow-[#08162B]"
+          : "bg-[#08162b]"
       }`}
     >
       <div className="container h-[90px] flex items-center justify-between relative z-[60]">
