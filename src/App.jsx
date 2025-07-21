@@ -14,8 +14,8 @@ function App() {
       <Home/>
       <Products/>
       <OurStory/>
-      <Responsibility/>
-      <StickyContactBar/>
+      {/* <Responsibility/> */}
+      {/* <StickyContactBar/> */}
       <Footer/>
     </>
   )
