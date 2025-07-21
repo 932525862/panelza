@@ -4,7 +4,9 @@ import StickyContactBar from "./components/stickyContactBar/StickyContactBar"
 import Home from "./pages/home"
 import OurStory from "./pages/ourStory"
 import Products from "./pages/products"
+import RecentProjects from "./pages/projects"
 import Responsibility from "./pages/responsibility"
+import 'animate.css';
 
 function App() {
 
@@ -14,6 +16,7 @@ function App() {
       <Home/>
       <Products/>
       <OurStory/>
+      <RecentProjects/>
       {/* <Responsibility/> */}
       {/* <StickyContactBar/> */}
       <Footer/>
