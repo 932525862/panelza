@@ -62,7 +62,7 @@ const Header = () => {
         </div>
 
         {/* Desktop Menu */}
-        <nav className="hidden md:flex">
+        <nav className="hidden lg:flex">
           <ul className="flex items-center gap-6 text-white text-[18px] font-medium">
             {menu.map((item) => (
               <li key={item.id}>
@@ -90,7 +90,7 @@ const Header = () => {
         </nav>
 
         {/* Mobile Menu Icon */}
-        <div className="md:hidden z-[70]">
+        <div className="lg:hidden z-[70]">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-white text-3xl focus:outline-none"
@@ -111,7 +111,7 @@ const Header = () => {
             ? "translate-x-0 opacity-100"
             : "translate-x-full opacity-0 pointer-events-none"
         }
-        md:hidden z-[55]`}
+        lg:hidden z-[55]`}
       >
         {menu.map((item) => (
           <a

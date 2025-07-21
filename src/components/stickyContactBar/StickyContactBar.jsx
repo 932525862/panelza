@@ -19,7 +19,7 @@ function StickyContactBar() {
 
   return (
     <div
-      className={`fixed bottom-3 left-0 w-full z-40 transition-all duration-500 ease-in-out 
+      className={`fixed bottom-0 left-0 w-full z-40 transition-all duration-500 ease-in-out 
         ${
           isAtFooter
             ? "translate-y-full opacity-0"

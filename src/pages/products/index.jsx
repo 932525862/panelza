@@ -1,8 +1,8 @@
 import React from "react";
-import wallMin from "../../assets/zavod.png";
-import roofMin from "../../assets/panel.png";
-import wallPeno from "../../assets/lisa.png";
-import roofPeno from "../../assets/texnika.png";
+import wallMin from "../../assets/panel1.png";
+import roofMin from "../../assets/panel2.png";
+import wallPeno from "../../assets/panel3.png";
+import roofPeno from "../../assets/panel4.png";
 
 const products = [
   {
@@ -19,6 +19,7 @@ const products = [
         value: "Минеральная плита на базальтовой основе",
       },
     ],
+    narx: "2 200 000 сум",
   },
   {
     image: roofMin,
@@ -35,6 +36,7 @@ const products = [
         value: "Минеральная плита на базальтовой основе",
       },
     ],
+    narx: "3 500 000 сум",
   },
   {
     image: wallPeno,
@@ -47,6 +49,7 @@ const products = [
       { label: "Рабочая ширина", value: "1200мм" },
       { label: "Утеплитель", value: "Пенополистирольные плиты" },
     ],
+    narx: "3 000 000 сум",
   },
   {
     image: roofPeno,
@@ -60,6 +63,7 @@ const products = [
       { label: "Высота волны", value: "h-35" },
       { label: "Утеплитель", value: "Пенополистирольные плиты" },
     ],
+    narx: "2 000 000 сум",
   },
 ];
 
@@ -67,46 +71,44 @@ const Products = () => {
   return (
     <section
       id="products"
-      className="py-12 px-4 md:px-8 max-w-screen-xl mx-auto"
+      className="bg-[#08162b] py-16 md:px-8"
       aria-labelledby="products-heading"
     >
-      <h2
-        id="products-heading"
-        className="text-2xl md:text-3xl font-bold text-center mb-10"
-      >
-        Наши Сэндвич-Панели
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-        {products.map((product, index) => (
-          <article
-            key={index}
-            className="bg-white rounded-xl shadow-md p-5 flex flex-col justify-between hover:shadow-lg transition"
-          >
-            <img
-              src={product.image}
-              alt={product.alt}
-              className="h-[150px] object-contain mb-4"
-              loading="lazy"
-            />
-            <h3 className="text-lg font-semibold text-center mb-3">
-              {product.title}
-            </h3>
-            <ul className="text-sm text-gray-700 space-y-1 mb-4">
-              {product.specs.map((spec, i) => (
-                <li key={i}>
-                  <strong>{spec.label}:</strong> {spec.value}
-                </li>
-              ))}
-            </ul>
-            <a
-              href="#"
-              className="bg-orange-500 hover:bg-orange-600 text-white text-sm text-center font-bold py-2 rounded-md transition block"
-              aria-label={`Подробнее о ${product.title}`}
+      <div className="container">
+        <h2
+          id="products-heading"
+          className="text-2xl text-white md:text-3xl font-bold mb-10"
+        >
+          Наши Сэндвич-Панели
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+          {products.map((product, index) => (
+            <article
+              key={index}
+              className="bg-white rounded-lg shadow-[#adadad] p-5 flex flex-col justify-between hover:shadow-md transition"
             >
-              ПОДРОБНЕЕ
-            </a>
-          </article>
-        ))}
+              <img
+                src={product.image}
+                alt={product.alt}
+                className="object-contain mb-4 transform hover:scale-105 transition duration-300"
+                loading="lazy"
+              />
+              <h3 className="text-lg font-semibold text-center mb-3">
+                {product.title}
+              </h3>
+              <ul className="text-sm text-gray-700 space-y-1 mb-4">
+                {product.specs.map((spec, i) => (
+                  <li key={i}>
+                    <strong>{spec.label}:</strong> {spec.value}
+                  </li>
+                ))}
+              </ul>
+              <p className="text-[#df6500]">
+                <strong className="text-black">Цена:</strong> {product.narx}
+              </p>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
