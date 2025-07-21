@@ -19,6 +19,7 @@ const products = [
         value: "Минеральная плита на базальтовой основе",
       },
     ],
+    narx: "2 200 000 сум",
   },
   {
     image: roofMin,
@@ -35,6 +36,7 @@ const products = [
         value: "Минеральная плита на базальтовой основе",
       },
     ],
+    narx: "3 500 000 сум",
   },
   {
     image: wallPeno,
@@ -47,6 +49,7 @@ const products = [
       { label: "Рабочая ширина", value: "1200мм" },
       { label: "Утеплитель", value: "Пенополистирольные плиты" },
     ],
+    narx: "3 000 000 сум",
   },
   {
     image: roofPeno,
@@ -60,6 +63,7 @@ const products = [
       { label: "Высота волны", value: "h-35" },
       { label: "Утеплитель", value: "Пенополистирольные плиты" },
     ],
+    narx: "2 000 000 сум",
   },
 ];
 
@@ -99,13 +103,9 @@ const Products = () => {
                   </li>
                 ))}
               </ul>
-              <a
-                href="#"
-                className="bg-orange-500 hover:bg-orange-600 text-white text-sm text-center font-bold py-2 rounded-md transition block"
-                aria-label={`Подробнее о ${product.title}`}
-              >
-                ПОДРОБНЕЕ
-              </a>
+              <p className="text-[#df6500]">
+                <strong className="text-black">Цена:</strong> {product.narx}
+              </p>
             </article>
           ))}
         </div>
