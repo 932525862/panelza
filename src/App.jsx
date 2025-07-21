@@ -1,6 +1,7 @@
 import Footer from "./components/footer/Footer"
 import Header from "./components/header/Header"
 import StickyContactBar from "./components/stickyContactBar/StickyContactBar"
+import Contact from "./pages/contact"
 import Home from "./pages/home"
 import OurStory from "./pages/ourStory"
 import Products from "./pages/products"
@@ -17,6 +18,7 @@ function App() {
       <Products/>
       <OurStory/>
       <RecentProjects/>
+      <Contact/>
       {/* <Responsibility/> */}
       {/* <StickyContactBar/> */}
       <Footer/>

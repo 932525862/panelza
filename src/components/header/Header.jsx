@@ -46,7 +46,7 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 w-full z-[60] transition-all duration-300 ${
         scrolled
-          ? "bg-[#08162bcb] backdrop-blur-lg shadow-md shadow-[#08162B]"
+          ? "bg-[#08162bad] backdrop-blur-md shadow-md shadow-[#08162B]"
           : "bg-[#08162b]"
       }`}
     >
