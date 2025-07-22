@@ -12,7 +12,8 @@ const Header = () => {
     { id: "products", label: "Что мы делаем" },
     { id: "ourStory", label: "Наша история" },
     { id: "projects", label: "Проекты" },
-    { id: "studies", label: "Кейсы" },
+    { id: "contact", label: "Контакт" },
+
   ];
 
   // Scroll active section

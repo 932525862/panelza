@@ -8,29 +8,41 @@ function Contact() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
 
-  const BOT_TOKEN = "123456789:AAH-sample-token-abc123";
-  const CHAT_ID = "123456789";
+  const BOT_TOKEN = "8067486410:AAEdYSeZLTtkpFR9vQ83M0F2Gg6X4U08nwY"; // o'zing bilan almashtir
+  const CHAT_ID = "-1002871595342"; // o'zing bilan almashtir
 
   const sendMessage = async (e) => {
     e.preventDefault();
-
-    const text = `📩 Новая заявка!\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}`;
+    if (phone.length !== 9) {
+      toast.error("Telefon raqami to‘liq emas!");
+      return;
+    }
+    const formattedPhone = `+998${phone}`;
+    const text = `📩 Yangi ariza!\n\n👤 Ism: ${name}\n📞 Tel: ${formattedPhone}`;
 
     try {
-      await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          chat_id: CHAT_ID,
-          text,
-        }),
-      });
+      const response = await fetch(
+        `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ chat_id: CHAT_ID, text }),
+        }
+      );
 
-      toast.success("Сообщение успешно отправлено!");
-      setName("");
-      setPhone("");
+      const data = await response.json();
+      if (data.ok) {
+        toast.success("Muvaffaqiyatli yuborildi!");
+        setName("");
+        setPhone("");
+        // onClose(); // bu yo‘q yoki kerak bo‘lmasa o‘chirib tashla
+      } else {
+        toast.error(
+          "Xabar yuborilmadi! Token yoki chat_id xato bo'lishi mumkin."
+        );
+      }
     } catch (err) {
-      toast.error("Ошибка при отправке сообщения.");
+      toast.error("Xatolik yuz berdi!");
     }
   };
 
@@ -38,11 +50,11 @@ function Contact() {
     <section
       id="contact"
       style={{ backgroundImage: `url(${contact_bg})` }}
-      className="w-full h-[80dvh] md:h-[60dvh] lg:h-[90dvh] bg-cover bg-no-repeat relative"
+      className="w-full h-[97dvh] bg-cover bg-no-repeat relative py-7"
     >
       <div className="w-full h-full absolute top-0 left-0 z-1 bg-black/10 backdrop-blur-lg"></div>
 
-      <div className="container px-4 py-8 flex items-center justify-center gap-8 flex-wrap absolute top-0 left-0 z-10">
+      <div className="container h-full px-4 py-8 flex items-center justify-center lg:gap-8 flex-wrap absolute top-0 left-0 z-10">
         <form
           onSubmit={sendMessage}
           className="max-w-[300px] w-full space-y-4 p-5 bg-black/30 backdrop-blur-md rounded-lg shadow-xl shadow-[#e98c2248]"
@@ -61,17 +73,20 @@ function Contact() {
             onChange={(e) => setName(e.target.value)}
             required
           />
+          <div className="bg-white rounded p-2 border flex items-center gap-1">
+            <span>+998</span>
           <input
             type="number"
-            placeholder="Телефон"
-            className="w-full border p-2 rounded bg-white outline-0"
+            placeholder="941234567"
+            className="w-full outline-0"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             required
           />
+          </div>
           <button
             type="submit"
-            className="bg-[#df6500] text-white px-4 py-2 rounded hover:bg-[#90450c] w-full duration-300"
+            className="bg-[#df6500] text-white hover:text-[#df6500] cursor-pointer px-4 py-2 rounded-md border-[1.5px] border-[#90450c] hover:bg-[#00000000] w-full duration-400"
           >
             Отправить
           </button>
