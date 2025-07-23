@@ -50,14 +50,14 @@ function Contact() {
     <section
       id="contact"
       style={{ backgroundImage: `url(${contact_bg})` }}
-      className="w-full h-[97dvh] bg-cover bg-no-repeat relative py-7"
+      className="w-full h-[950px] min-[933px]:h-[550px] bg-cover bg-no-repeat relative py-7"
     >
       <div className="w-full h-full absolute top-0 left-0 z-1 bg-black/10 backdrop-blur-lg"></div>
 
       <div className="container h-full px-4 py-8 flex items-center justify-center lg:gap-8 flex-wrap absolute top-0 left-0 z-10">
         <form
           onSubmit={sendMessage}
-          className="max-w-[300px] w-full space-y-4 p-5 bg-black/30 backdrop-blur-md rounded-lg shadow-xl shadow-[#e98c2248]"
+          className="max-w-[400px] w-full space-y-4 p-5 bg-black/30 backdrop-blur-md rounded-lg shadow-xl shadow-[#e98c2248]"
         >
           <h2 className="text-2xl font-medium text-white text-center">
             Каталог с ценами и описанием каждой позиции

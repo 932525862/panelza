@@ -63,9 +63,9 @@ const RecentProjects = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section id="projects" className="w-full h-[80dvh] md:h-[60dvh] lg:h-[100dvh] relative">
+    <section id="projects" className="w-full h-[600px] relative">
       {/* Custom Navigation Buttons */}
-      <div className="absolute top-[175px] md:top-[200px] lg:top-[115px] left-[20px] lg:left-[120px] z-20 flex gap-1">
+      <div className="absolute top-[23%] min-[900px]:top-[24%] min-[1030px]:top-[32%] left-[20px] lg:left-[120px] z-20 flex gap-1">
         <button
           ref={prevRef}
           className="bg-[#08162B] text-white shadow-lg rounded-[3px] transition w-[60px] h-[60px] flex justify-center items-center"
@@ -109,7 +109,7 @@ const RecentProjects = () => {
                   activeIndex === i
                     ? "animate__animated animate__fadeInRight"
                     : ""
-                } bg-[#08162B] rounded-sm text-white p-5 mx-5 lg:ml-30 mb-20 max-w-[700px] h-[350px] lg:h-[300px] transition-all duration-700`}
+                } bg-[#08162B] rounded-sm text-white p-5 mx-5 lg:ml-30 mb-5 max-w-[700px] h-[350px] lg:h-[300px] transition-all duration-700`}
               >
                 <h3 className="text-3xl font-bold mb-4">{project.title}</h3>
                 <p className="text-lg italic">{project.location}</p>
