@@ -1,24 +1,45 @@
 import contact_img from "../../assets/contact.webp";
 import contact_bg from "../../assets/contact.bg.jpg";
 import { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Contact() {
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState("+998 ");
 
-  const BOT_TOKEN = "8067486410:AAEdYSeZLTtkpFR9vQ83M0F2Gg6X4U08nwY"; // o'zing bilan almashtir
-  const CHAT_ID = "-1002871595342"; // o'zing bilan almashtir
+  const BOT_TOKEN = "8067486410:AAEdYSeZLTtkpFR9vQ83M0F2Gg6X4U08nwY";
+  const CHAT_ID = "-1002871595342";
+
+  const handlePhoneChange = (e) => {
+    let value = e.target.value;
+
+    if (!value.startsWith("+998")) return;
+
+    let raw = value.replace(/\D/g, "").slice(3); // +998 ni olib tashlab
+    if (raw.length > 9) raw = raw.slice(0, 9);
+
+    let formatted = "";
+    if (raw.length > 0) formatted += raw.slice(0, 2);
+    if (raw.length >= 3) formatted += " " + raw.slice(2, 5);
+    if (raw.length >= 6) formatted += " " + raw.slice(5, 7);
+    if (raw.length >= 8) formatted += " " + raw.slice(7, 9);
+
+    setPhone("+998 " + formatted);
+  };
 
   const sendMessage = async (e) => {
     e.preventDefault();
-    if (phone.length !== 9) {
-      toast.error("Telefon raqami to‘liq emas!");
+    const digits = phone.replace(/\D/g, "").slice(3);
+
+    if (digits.length !== 9) {
+      toast.error("Телефон номер введен не полностью!");
       return;
     }
-    const formattedPhone = `+998${phone}`;
-    const text = `📩 Yangi ariza!\n\n👤 Ism: ${name}\n📞 Tel: ${formattedPhone}`;
+
+    const formattedPhone =
+      "+998 " + digits.replace(/(\d{2})(\d{3})(\d{2})(\d{2})/, "$1 $2 $3 $4");
+    const text = `📩 Новая заявка!\n\n👤 Имя: ${name}\n📞 Телефон: ${formattedPhone}`;
 
     try {
       const response = await fetch(
@@ -32,17 +53,14 @@ function Contact() {
 
       const data = await response.json();
       if (data.ok) {
-        toast.success("Muvaffaqiyatli yuborildi!");
+        toast.success("Успешно отправлено!");
         setName("");
-        setPhone("");
-        // onClose(); // bu yo‘q yoki kerak bo‘lmasa o‘chirib tashla
+        setPhone("+998 ");
       } else {
-        toast.error(
-          "Xabar yuborilmadi! Token yoki chat_id xato bo'lishi mumkin."
-        );
+        toast.error("Ошибка при отправке! Проверьте токен или chat_id.");
       }
     } catch (err) {
-      toast.error("Xatolik yuz berdi!");
+      toast.error("Произошла ошибка!");
     }
   };
 
@@ -65,6 +83,7 @@ function Contact() {
           <p className="text-center text-md font-medium text-white">
             Заполните форму и получите каталог нашей продукции
           </p>
+
           <input
             type="text"
             placeholder="Ваше имя"
@@ -73,17 +92,17 @@ function Contact() {
             onChange={(e) => setName(e.target.value)}
             required
           />
-          <div className="bg-white rounded p-2 border flex items-center gap-1">
-            <span>+998</span>
+
           <input
-            type="number"
-            placeholder="941234567"
-            className="w-full outline-0"
+            type="text"
+            placeholder="90 123 45 67"
+            className="w-full border p-2 rounded bg-white outline-0"
             value={phone}
-            onChange={(e) => setPhone(e.target.value)}
+            onChange={handlePhoneChange}
+            maxLength={17}
             required
           />
-          </div>
+
           <button
             type="submit"
             className="bg-[#df6500] text-white hover:text-[#df6500] cursor-pointer px-4 py-2 rounded-md border-[1.5px] border-[#90450c] hover:bg-[#00000000] w-full duration-400"
@@ -96,9 +115,6 @@ function Contact() {
           <img src={contact_img} alt="contact" className="w-full" />
         </div>
       </div>
-
-      {/* Toast container */}
-      <ToastContainer position="top-right" autoClose={3000} />
     </section>
   );
 }
