@@ -8,6 +8,7 @@ import Products from "./pages/products"
 import RecentProjects from "./pages/projects"
 import Responsibility from "./pages/responsibility"
 import 'animate.css';
+import { Toaster } from 'sonner'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
       {/* <Responsibility/> */}
       {/* <StickyContactBar/> */}
       <Footer/>
+      <Toaster position="top-center" richColors />
     </>
   )
 }
