@@ -8,6 +8,8 @@ import Products from "./pages/products"
 import RecentProjects from "./pages/projects"
 import 'animate.css';
 import { Toaster } from 'sonner'
+import Video from "./pages/video"
+import StickyContactBar from "./components/stickyContactBar/StickyContactBar"
 
 function App() {
 
@@ -16,10 +18,12 @@ function App() {
       <Header/>
       <Home/>
       <Products/>
+      <Video/>
       <OurStory/>
+      <Contact/>
       <RecentProjects/>
       <Fotos/>
-      <Contact/>
+      <StickyContactBar/>
       <Footer/>
       <Toaster position="top-center" richColors />
     </>

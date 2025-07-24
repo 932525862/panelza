@@ -21,9 +21,9 @@ const images = [
 
 function Fotos() {
   return (
-    <section className="fotos py-10 bg-gray-50">
+    <section className="fotos py-10 bg-gray-800">
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center text-gray-800">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center text-gray-100">
           Наши последние проекты
         </h2>
         <ul className="grid grid-cols-2 min-[900px]:grid-cols-4 gap-5">
@@ -32,7 +32,7 @@ function Fotos() {
               <img
                 src={img.src}
                 alt={img.alt}
-                className="w-full h-auto rounded-xl shadow-md hover:scale-105 transition-transform duration-300 ease-in-out"
+                className="w-full h-auto rounded-md shadow-lg shadow-gray-600 hover:scale-105 transition-transform duration-300 ease-in-out"
                 loading="lazy"
               />
             </li>

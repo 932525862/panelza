@@ -63,8 +63,9 @@ const RecentProjects = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section id="projects" className="w-full h-[600px] relative">
+    <section id="projects" className="w-full h-[600px] relative mt-[60px]">
       {/* Custom Navigation Buttons */}
+      <h2 className="text-3xl text-white font-semibold absolute top-[-55px] left-5 text-shadow-sm text-shadow-gray-400">Reject Project</h2>
       <div className="absolute top-[23%] min-[900px]:top-[24%] min-[1030px]:top-[32%] left-[20px] lg:left-[120px] z-20 flex gap-1">
         <button
           ref={prevRef}
