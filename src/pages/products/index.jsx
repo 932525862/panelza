@@ -106,6 +106,11 @@ const Products = () => {
               <p className="text-[#df6500]">
                 <strong className="text-black">Цена:</strong> {product.narx}
               </p>
+              <a
+                href="#contact"
+                className="mt-4 bg-[#df6500] text-white py-2 px-4 rounded text-center hover:bg-[#c85b00] transition-colors">
+                Заказать
+                </a>
             </article>
           ))}
         </div>

@@ -78,7 +78,7 @@ function Footer() {
         <div>
           <img className="w-[100px] h-[100px]" src={Logo} alt="Logo" />
           <ul className="space-y-1 text-sm text-gray-300 mt-[15px]">
-            <li className="hover:text-[#df6500]"><a href="tel:+998 77 408 00 05">+998 77 408 00 05</a></li>
+            <li className="hover:text-[#df6500]"><a href="tel:+998909361795">+998 90 936 17 95</a></li>
             <li className="hover:text-[#df6500]"><a href="mailto:panelzagroup@gmail.com">panelzagroup@gmail.com</a></li>
             <li className="hover:text-[#df6500]">Адрес Ташкент Адрес Ташкент </li>
             

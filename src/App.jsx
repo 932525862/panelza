@@ -9,7 +9,7 @@ import RecentProjects from "./pages/projects"
 import 'animate.css';
 import { Toaster } from 'sonner'
 import Video from "./pages/video"
-import StickyContactBar from "./components/stickyContactBar/StickyContactBar"
+import FloatingButton from "./components/floatingButton/FloatingButton"
 
 function App() {
 
@@ -23,7 +23,7 @@ function App() {
       <Contact/>
       <RecentProjects/>
       <Fotos/>
-      <StickyContactBar/>
+      <FloatingButton/>
       <Footer/>
       <Toaster position="top-center" richColors />
     </>
