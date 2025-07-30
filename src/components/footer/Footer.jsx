@@ -76,11 +76,11 @@ function Footer() {
       <div className="max-w-7xl mx-auto grid max-md:grid-cols-2 max-sm:grid-cols-1 md:grid-cols-5 gap-8">
         {/* Company */}
         <div>
-          <img className="w-[100px] h-[100px]" src={Logo} alt="Logo" />
+          <a href="#home"><img className="w-[100px] h-[100px]" src={Logo} alt="Logo" /></a>
           <ul className="space-y-1 text-sm text-gray-300 mt-[15px]">
-            <li className="hover:text-[#df6500]"><a href="tel:+998909361795">+998 90 936 17 95</a></li>
+            <li className="hover:text-[#df6500]"><a href="tel:+998909361795">+998 77 408 00 05</a></li>
             <li className="hover:text-[#df6500]"><a href="mailto:panelzagroup@gmail.com">panelzagroup@gmail.com</a></li>
-            <li className="hover:text-[#df6500]">Адрес Ташкент Адрес Ташкент </li>
+            <li className="hover:text-[#df6500]">Адрес: МФЙ Гульбог, улица Зиё Нур </li>
             
           </ul>
         </div>
@@ -131,7 +131,7 @@ function Footer() {
       </div>
 
   {/* Bottom line */}
-  <div className="mt-10 border-t border-gray-600 pt-4 flex flex-col md:flex-row items-center justify-between text-sm text-gray-400">
+  {/* <div className="mt-10 border-t border-gray-600 pt-4 flex flex-col md:flex-row items-center justify-between text-sm text-gray-400">
     <p>Copyright ©2022</p>
     <div className="flex gap-4 mt-2 md:mt-0">
       <i className="fab fa-facebook-f">tel</i>
@@ -139,7 +139,7 @@ function Footer() {
       <i className="fab fa-instagram">tel</i>
       <i className="fab fa-linkedin-in">tel</i>
     </div>
-  </div>
+  </div> */}
 </footer>
 
   );
