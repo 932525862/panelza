@@ -92,6 +92,7 @@ function Footer() {
   
   <ul className="space-y-1 text-sm text-gray-300">
     <li><a href="#home" className="hover:underline">Главная</a></li>
+    
     <li><a href="#products" className="hover:underline">Что мы делаем</a></li>
     <li><a href="#ourStory" className="hover:underline">Наша история</a></li>
     <li><a href="#projects" className="hover:underline">Проекты</a></li>
