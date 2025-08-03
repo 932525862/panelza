@@ -1,13 +1,13 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import { HelmetProvider } from 'react-helmet-async';
+import React from "react";
+import ReactDOM from "react-dom/client"; // ❗ React 18 dan boshlab bu modul kerak
+import { HelmetProvider } from "react-helmet-async";
+import App from "./App";
+import "./index.css"; // <-- TAILWIND STYLE BU YERDA KIRITILISHI KERAK
 
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <HelmetProvider>
-      <App />
-    </HelmetProvider>
-  </StrictMode>
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <HelmetProvider>
+    <App />
+  </HelmetProvider>
 );
