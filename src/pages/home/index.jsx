@@ -23,6 +23,7 @@ function Home() {
           content="Качественные строительные панели от Panelza. Производим и доставляем по всей стране. Завод с 2016 года."
         />
         <meta property="og:type" content="website" />
+        
         <meta property="og:url" content="https://panelza.uz" />
         <meta property="og:site_name" content="Panelza" />
         <meta property="og:locale" content="ru_RU" />
