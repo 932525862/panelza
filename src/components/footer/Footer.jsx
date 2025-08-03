@@ -88,6 +88,7 @@ function Footer() {
         {/* page */}
        <div>
   <h3 className="font-semibold mb-2">Pages</h3>
+  
   <ul className="space-y-1 text-sm text-gray-300">
     <li><a href="#home" className="hover:underline">Главная</a></li>
     <li><a href="#products" className="hover:underline">Что мы делаем</a></li>
