@@ -94,6 +94,7 @@ function Footer() {
     <li><a href="#home" className="hover:underline">Главная</a></li>
     
     <li><a href="#products" className="hover:underline">Что мы делаем</a></li>
+    
     <li><a href="#ourStory" className="hover:underline">Наша история</a></li>
     <li><a href="#projects" className="hover:underline">Проекты</a></li>
     <li><a href="#studies" className="hover:underline">Кейсы</a></li>
