@@ -1,4 +1,4 @@
-import Fotos1 from '../../assets/fotos1.jpg'
+import Fotos1 from '../../assets/new/new.jpg'
 import Fotos2 from '../../assets/fotos2.jpg'
 import Fotos3 from '../../assets/fotos3.jpg'
 import Fotos4 from '../../assets/fotos4.jpg'
@@ -6,7 +6,6 @@ import Fotos5 from '../../assets/fotos5.jpg'
 import Fotos6 from '../../assets/fotos6.jpg'
 import Fotos7 from '../../assets/fotos7.jpg'
 import Fotos8 from '../../assets/fotos5.jpg'
-
 
 const images = [
   { src: Fotos1, alt: 'Внешний вид строительного проекта' },
@@ -21,23 +20,42 @@ const images = [
 
 function Fotos() {
   return (
-    <section className="fotos py-10 bg-gray-800">
+    <section className="fotos py-16 bg-gradient-to-b from-gray-900 to-gray-800">
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center text-gray-100">
-          Наши последние проекты
-        </h2>
-        <ul className="grid grid-cols-2 min-[900px]:grid-cols-4 gap-5">
+        
+        {/* Title */}
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-white">
+            Наши последние проекты
+          </h2>
+          <div className="w-20 h-1 bg-yellow-500 mx-auto mt-3 rounded-full"></div>
+        </div>
+
+        {/* Grid */}
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {images.map((img, index) => (
-            <li key={index}>
+            <li key={index} className="group relative overflow-hidden rounded-xl shadow-md shadow-black/50">
+              
+              {/* Image */}
               <img
                 src={img.src}
                 alt={img.alt}
-                className="w-full h-auto rounded-md shadow-lg shadow-gray-600 hover:scale-105 transition-transform duration-300 ease-in-out"
+                className="w-full h-60 object-cover transition-transform duration-500 group-hover:scale-110"
                 loading="lazy"
               />
+
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+              {/* Text on hover */}
+              <p className="absolute bottom-4 left-4 text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                {img.alt}
+              </p>
+
             </li>
           ))}
         </ul>
+
       </div>
     </section>
   )

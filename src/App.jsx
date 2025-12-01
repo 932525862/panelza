@@ -18,7 +18,7 @@ function App() {
       <Header/>
       <Home/>
       <Products/>
-      <Video/>
+      {/* <Video/> */}
       <OurStory/>
       <Contact/>
       <RecentProjects/>

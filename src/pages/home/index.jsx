@@ -1,4 +1,4 @@
-import Home_bg from "../../assets/home.bg.png";
+import Home_bg from "../../assets/new/photo_2025-09-02_14-05-48.jpg";
 import { Helmet } from "react-helmet-async";
 
 function Home() {
@@ -35,20 +35,20 @@ function Home() {
           backgroundImage: `url(${Home_bg})`,
         }}
         id="home"
-        className="h-[100dvh] pt-[90px] relative max-[770px]:bg-center bg-cover bg-no-repeat"
+        className="h-[670px]  pt-[150px]  relative max-[770px]:bg-center bg-cover bg-no-repeat"
       >
-        <div className="z-10 absolute top-0 left-0 w-full h-full bg-[#02124e52]"></div>
+        <div className="z-10 absolute top-0 left-0 w-full h-full bg-black/60"></div>
         <div className="container relative z-20">
-          <div className="max-w-full min-[1030px]:max-w-[60%] max-[900px]:pt-[60px] text-center min-[1030px]:text-start absolute text-shadow-xs text-shadow-amber-500 flex flex-col max-[1030px]:items-center max-[1030px]:pt-[200px]">
-            <h1 className="text-white max-[1030px]:text-[50px] max-[670px]:text-[40px] max-[550px]:text-4xl min-[900px]:max-w-[70%] min-[1030px]:max-w-full text-5xl font-medium">
+          <div className="max-w-full min-[1030px]:max-w-[60%] max-[900px]:pt-[60px] text-left min-[1030px]:text-start absolute text-shadow-xs text-shadow-amber-500 flex flex-col  max-sm:pt-0">
+            <h1 className="text-white max-[1030px]:text-[30px] max-[670px]:text-[25px] max-[550px]:text-[18px] min-[900px]:max-w-[70%] min-[1030px]:max-w-full text-5xl font-medium">
               Завод по производству сэндвич-панелей с доставкой по
               <span className="text-[#df6500]"> всему Узбекистану</span>
             </h1>
-            <p className="text-white max-[550px]:text-2xl max-[1030px]:text-4xl max-[1030px]:text-[3xl] text-2xl mt-7 min-[900px]:max-w-[70%] min-[1030px]:max-w-full">
+            <p className="text-white max-[550px]:text-[16px] max-[1030px]:text-[27px] max-[670px]:text-[23px] text-2xl mt-7 min-[900px]:max-w-[70%] min-[1030px]:max-w-full">
               Мы производим и поставляем сэндвич-панели высокого качества для
               различных строительных проектов по всей территории Узбекистана
             </p>
-            <p className="text-[#d3d3d3] text-xl max-[550px]:text-xl max-[1030px]:text-3xl max-[670px]:text-2xl mt-7 min-[900px]:max-w-[70%] min-[1030px]:max-w-full">
+            <p className="text-[#d3d3d3] text-xl max-[550px]:text-[16px] max-[1030px]:text-[27px] max-[670px]:text-[23px] mt-7 min-[900px]:max-w-[70%] min-[1030px]:max-w-full">
               Широкий ассортимент для любых строительных задач. Наши панели
               отличаются прочностью, отличной теплоизоляцией и длительным сроком
               службы. Предлагаем индивидуальные решения под нужды каждого
@@ -65,6 +65,9 @@ function Home() {
             </div> */}
           </div>
         </div>
+
+        <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-b from-transparent to-[#061a3a] z-[15]"></div>
+
       </section>
     </>
   );

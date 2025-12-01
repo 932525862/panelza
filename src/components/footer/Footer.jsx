@@ -144,6 +144,8 @@ function Footer() {
       <i className="fab fa-linkedin-in">tel</i>
     </div>
   </div> */}
+
+  
 </footer>
 
   );

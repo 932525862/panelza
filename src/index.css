@@ -4,8 +4,8 @@ html {
 }
 .container{
   width: 100%;
-  max-width: 1340px;
-  padding: 0 15px;
+  max-width: 1300px;
+  padding: 0 10px;
   margin-right: auto;
   margin-left: auto;
 }

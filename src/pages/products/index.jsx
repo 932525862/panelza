@@ -1,8 +1,8 @@
 import React from "react";
-import wallMin from "../../assets/panel1.png";
-import roofMin from "../../assets/panel2.png";
-import wallPeno from "../../assets/panel3.png";
-import roofPeno from "../../assets/panel4.png";
+import wallMin from "../../assets/new/new.jpg";
+import roofMin from "../../assets/new/new2.jpg";
+import wallPeno from "../../assets/new/new3.jpg";
+import roofPeno from "../../assets/new/new4.jpg";
 
 const products = [
   {
@@ -81,19 +81,20 @@ const Products = () => {
         >
           Наши Сэндвич-Панели
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3">
           {products.map((product, index) => (
             <article
               key={index}
-              className="bg-white rounded-lg shadow-[#adadad] p-5 flex flex-col justify-between hover:shadow-md transition"
+              className="bg-white rounded-lg shadow-[#adadad]  flex flex-col justify-between hover:shadow-md transition"
             >
               <img
                 src={product.image}
                 alt={product.alt}
-                className="object-contain mb-4 transform hover:scale-105 transition duration-300"
+                className="object-cover h-[230px] rounded-lg mb-4 transform  transition duration-300"
                 loading="lazy"
               />
-              <h3 className="text-lg font-semibold text-center mb-3">
+            <div className="p-[15px] flex flex-col justify-between">
+                <h3 className="text-lg font-semibold text-left mb-3">
                 {product.title}
               </h3>
               <ul className="text-sm text-gray-700 space-y-1 mb-4">
@@ -111,10 +112,13 @@ const Products = () => {
                 className="mt-4 bg-[#df6500] text-white py-2 px-4 rounded text-center hover:bg-[#c85b00] transition-colors">
                 Заказать
                 </a>
+            </div>
             </article>
           ))}
         </div>
       </div>
+
+      
     </section>
   );
 };
