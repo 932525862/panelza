@@ -62,7 +62,7 @@ function Home() {
               >
                 +998 77 408 00 05
               </a>
-            </div> */}
+            </div> */}     
           </div>
         </div>
 
