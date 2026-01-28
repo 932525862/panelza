@@ -1,5 +1,5 @@
 import React from "react";
-import wallMin from "../../assets/new/new.jpg";
+import wallMin from "../../assets/panelzaSP.jpg";
 import roofMin from "../../assets/new/new2.jpg";
 import wallPeno from "../../assets/new/new3.jpg";
 import roofPeno from "../../assets/new/new4.jpg";
@@ -71,9 +71,9 @@ const Products = () => {
   return (
     <section
       id="products"
-      className="bg-[#08162b] py-16 md:px-8"
+      className="bg-[#08162b] py-16 md:px-8 "
       aria-labelledby="products-heading"
-    >
+    >   
       <div className="container">
         <h2
           id="products-heading"
@@ -81,38 +81,38 @@ const Products = () => {
         >
           Наши Сэндвич-Панели
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3">
+        <div className="grid grid-cols-4 gap-3">
           {products.map((product, index) => (
             <article
               key={index}
-              className="bg-white rounded-lg shadow-[#adadad]  flex flex-col justify-between hover:shadow-md transition"
+              className="bg-white rounded-lg shadow-lg flex flex-col h-full hover:shadow-xl transition"
             >
               <img
                 src={product.image}
                 alt={product.alt}
-                className="object-cover h-[230px] rounded-lg mb-4 transform  transition duration-300"
+                className="object-cover h-[200px] rounded-t-lg w-full"
                 loading="lazy"
               />
-            <div className="p-[15px] flex flex-col justify-between">
-                <h3 className="text-lg font-semibold text-left mb-3">
-                {product.title}
-              </h3>
-              <ul className="text-sm text-gray-700 space-y-1 mb-4">
-                {product.specs.map((spec, i) => (
-                  <li key={i}>
-                    <strong>{spec.label}:</strong> {spec.value}
-                  </li>
-                ))}
-              </ul>
-              <p className="text-[#df6500]">
-                <strong className="text-black">Цена:</strong> {product.narx}
-              </p>
-              <a
-                href="#contact"
-                className="mt-4 bg-[#df6500] text-white py-2 px-4 rounded text-center hover:bg-[#c85b00] transition-colors">
-                Заказать
+              <div className="p-5 flex flex-col flex-grow">
+                <h3 className="text-base font-bold text-left mb-3 min-h-[50px] flex items-center">
+                  {product.title}
+                </h3>
+                <ul className="text-xs text-gray-700 space-y-1 mb-4 flex-grow">
+                  {product.specs.map((spec, i) => (
+                    <li key={i}>
+                      <strong>{spec.label}:</strong> {spec.value}
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-[#df6500] mb-4 text-sm">
+                  <strong className="text-black">Цена:</strong> {product.narx}
+                </p>
+                <a
+                  href="#contact"
+                  className="bg-[#df6500] text-white py-2 px-4 rounded text-center text-sm font-semibold hover:bg-[#c85b00] transition-colors">
+                  Заказать
                 </a>
-            </div>
+              </div>
             </article>
           ))}
         </div>

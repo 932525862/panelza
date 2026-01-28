@@ -1,4 +1,4 @@
-import Home_bg from "../../assets/new/photo_2025-09-02_14-05-48.jpg";
+import Home_bg from "../../assets/photo_2026-01-27_14-22-28.jpg";
 import { Helmet } from "react-helmet-async";
 
 function Home() {

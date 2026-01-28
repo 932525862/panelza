@@ -1,4 +1,4 @@
-import Fotos1 from '../../assets/new/new.jpg'
+import Fotos1 from '../../assets/tashqi.jpg'
 import Fotos2 from '../../assets/fotos2.jpg'
 import Fotos3 from '../../assets/fotos3.jpg'
 import Fotos4 from '../../assets/fotos4.jpg'
@@ -20,7 +20,7 @@ const images = [
 
 function Fotos() {
   return (
-    <section className="fotos py-16 bg-gradient-to-b from-gray-900 to-gray-800">
+    <section className="fotos py-16 bg-gradient-to-b from-gray-900 to-gray-800  mt-[55px]">
       <div className="container mx-auto px-4">
         
         {/* Title */}

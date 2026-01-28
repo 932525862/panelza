@@ -1,8 +1,9 @@
-import contact_img from "../../assets/contact.webp";
-import contact_bg from "../../assets/contact.bg.jpg";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import Panel from "../../assets/new/new3.jpg";
 import "react-toastify/dist/ReactToastify.css";
+import Logo from "../../assets/panelzalogo.png";
+
 
 function Contact() {
   const [name, setName] = useState("");
@@ -67,52 +68,76 @@ function Contact() {
   return (
     <section
       id="contact"
-      style={{ backgroundImage: `url(${contact_bg})` }}
-      className="w-full h-[950px] min-[933px]:h-[550px] bg-cover bg-no-repeat relative py-7"
+      className="w-full h-auto lg:h-[650px] min-[633px]:h-[550px] bg-no-repeat relative py-7"
     >
-      <div className="w-full h-full absolute top-0 left-0 z-1 bg-black/10 backdrop-blur-lg"></div>
+      {/* Background image only on large screens */}
+      <div
+        className="hidden lg:block absolute inset-0 bg-cover bg-center z-0"
+        style={{ backgroundImage: `url(${Panel})` }}
+      />
+      <div className="hidden lg:block w-full h-full absolute top-0 left-0 z-10 bg-black/20"></div>
 
-      <div className="container h-full px-4 py-8 flex items-center justify-center lg:gap-8 flex-wrap absolute top-0 left-0 z-10">
-        <form
-          onSubmit={sendMessage}
-          className="max-w-[400px] w-full space-y-4 p-5 bg-black/30 backdrop-blur-md rounded-lg shadow-xl shadow-[#e98c2248]"
-        >
-          <h2 className="text-2xl font-medium text-white text-center">
-            Каталог с ценами и описанием каждой позиции
-          </h2>
-          <p className="text-center text-md font-medium text-white">
-            Заполните форму и получите каталог нашей продукции
-          </p>
+      {/* Mobile header (visible on small screens) */}
+      <div className="lg:hidden w-full bg-[#071b3a] text-white py-8 px-6">
+        <div className="max-w-screen-sm mx-auto">
+          <img src={Logo} alt="logo" className="w-40 mx-auto mb-4" />
+          <h1 className="text-5xl font-bold">Каталог</h1>
+          <div className="w-28 h-1 bg-white my-4"></div>
+          <p className="text-lg font-medium max-w-md">Завод по производству сэндвич панелей</p>
+        </div>
+      </div>
 
-          <input
-            type="text"
-            placeholder="Ваше имя"
-            className="w-full border p-2 rounded bg-white outline-0"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
+      {/* Mobile image shown under header */}
+      <img src={Panel} alt="panel" className="w-full lg:hidden object-cover h-56" />
 
-          <input
-            type="text"
-            placeholder="90 123 45 67"
-            className="w-full border p-2 rounded bg-white outline-0"
-            value={phone}
-            onChange={handlePhoneChange}
-            maxLength={17}
-            required
-          />
+      <div className="container h-auto px-4 py-8 pb-28 flex items-center justify-center lg:absolute top-0 left-0 z-20">
+        <div className="w-full flex flex-wrap items-center">
+          <div className="hidden lg:flex w-full lg:w-1/2 px-6 flex-col items-start justify-center text-white py-8 transform lg:-translate-y-12 lg:pl-20">
+            <img src={Logo} alt="logo" className="w-48 lg:w-56 mb-5" />
+            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold">Каталог</h1>
+            <div className="w-32 lg:w-36 h-1 bg-white my-4"></div>
+            <p className="text-base lg:text-xl font-medium max-w-lg">Завод по производству сэндвич панелей</p>
+          </div>
 
-          <button
-            type="submit"
-            className="bg-[#df6500] text-white hover:text-[#df6500] cursor-pointer px-4 py-2 rounded-md border-[1.5px] border-[#90450c] hover:bg-[#00000000] w-full duration-400"
-          >
-            Отправить
-          </button>
-        </form>
+          <div className="w-full lg:w-1/2 px-6 flex items-center justify-center lg:justify-end py-8">
+            <form
+              onSubmit={sendMessage}
+              className="mt-6 max-w-[420px] w-full space-y-6 p-8 bg-black/60 rounded-lg shadow-xl shadow-[#00000066] relative z-30 mb-8 lg:mb-0"
+            >
+              <h2 className="text-2xl font-medium text-white text-center lg:text-left">
+                Каталог с ценами и описанием каждой позиции
+              </h2>
+              <p className="text-center lg:text-left text-md font-medium text-white">
+                Заполните форму и получите каталог нашей продукции
+              </p>
 
-        <div className="w-full max-w-[500px]">
-          <img src={contact_img} alt="contact" className="w-full" />
+              <input
+                type="text"
+                placeholder="Ваше имя"
+                className="w-full border p-3 rounded bg-white outline-0"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+
+              <input
+                type="text"
+                placeholder="+998 90 123 45 67"
+                className="w-full border p-3 rounded bg-white outline-0"
+                value={phone}
+                onChange={handlePhoneChange}
+                maxLength={17}
+                required
+              />
+
+              <button
+                type="submit"
+                className="bg-[#df6500] text-white hover:text-[#df6500] cursor-pointer px-4 py-3 rounded-md border-[1.5px] border-[#90450c] hover:bg-transparent w-full duration-400"
+              >
+                Отправить
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>

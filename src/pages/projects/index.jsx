@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 import project1 from "../../assets/project1.jpg";
 import project2 from "../../assets/project2.jpg";
 import project3 from "../../assets/project1.jpg";
-import project4 from "../../assets/project3.jpg";
+// import project4 from "../../assets/project3.jpg";
 
 import {
   MdOutlineKeyboardArrowLeft,
@@ -53,9 +53,15 @@ const RecentProjects = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section id="projects" className="w-full h-[600px] relative mt-[60px]">
+    <section id="projects" className="w-full h-[600px] relative mt-[30px]">
       {/* Custom Navigation Buttons */}
-      <h2 className="text-3xl text-white font-semibold absolute top-[-55px] left-5 text-shadow-sm text-shadow-gray-400">Reject Project</h2>
+        <div className="text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-white">
+            Наши работы
+          </h2>
+          <div className="w-20 h-1 bg-yellow-500 mx-auto mt-3 rounded-full"></div>
+        </div>
+     
       <div className="absolute top-[23%] min-[900px]:top-[24%] min-[1030px]:top-[32%] left-[20px] lg:left-[120px] z-20 flex gap-1">
         <button
           ref={prevRef}
