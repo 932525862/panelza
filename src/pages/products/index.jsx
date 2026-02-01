@@ -2,7 +2,7 @@ import React from "react";
 import wallMin from "../../assets/panelzaSP.jpg";
 import roofMin from "../../assets/new/new2.jpg";
 import wallPeno from "../../assets/new/new3.jpg";
-import roofPeno from "../../assets/new/new4.jpg";
+import roofPeno from "../../assets/DSC07859.jpg";
 
 const products = [
   {
@@ -19,7 +19,7 @@ const products = [
         value: "Минеральная плита на базальтовой основе",
       },
     ],
-    narx: "2 200 000 сум",
+    
   },
   {
     image: roofMin,
@@ -36,7 +36,7 @@ const products = [
         value: "Минеральная плита на базальтовой основе",
       },
     ],
-    narx: "3 500 000 сум",
+   
   },
   {
     image: wallPeno,
@@ -49,7 +49,7 @@ const products = [
       { label: "Рабочая ширина", value: "1200мм" },
       { label: "Утеплитель", value: "Пенополистирольные плиты" },
     ],
-    narx: "3 000 000 сум",
+    
   },
   {
     image: roofPeno,
@@ -63,7 +63,7 @@ const products = [
       { label: "Высота волны", value: "h-35" },
       { label: "Утеплитель", value: "Пенополистирольные плиты" },
     ],
-    narx: "2 000 000 сум",
+   
   },
 ];
 
@@ -118,9 +118,9 @@ const Products = () => {
                   ))}
                 </ul>
 
-                <p className="text-[#df6500] mb-4 text-sm">
+                {/* <p className="text-[#df6500] mb-4 text-sm">
                   <strong className="text-black">Цена:</strong> {product.narx}
-                </p>
+                </p> */}
 
                 <a
                   href="#contact"
