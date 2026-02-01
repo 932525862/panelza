@@ -1,4 +1,4 @@
-import Home_bg from "../../assets/photo_2026-01-27_14-22-28.jpg";
+import Home_bg from "../../assets/photo_2025-09-11_20-45-36.jpg";
 import { Helmet } from "react-helmet-async";
 
 function Home() {
@@ -41,8 +41,8 @@ function Home() {
         <div className="container relative z-20">
           <div className="max-w-full min-[1030px]:max-w-[60%] max-[900px]:pt-[60px] text-left min-[1030px]:text-start absolute text-shadow-xs text-shadow-amber-500 flex flex-col  max-sm:pt-0">
             <h1 className="text-white max-[1030px]:text-[30px] max-[670px]:text-[25px] max-[550px]:text-[18px] min-[900px]:max-w-[70%] min-[1030px]:max-w-full text-5xl font-medium">
-              Завод по производству сэндвич-панелей с доставкой по
-              <span className="text-[#df6500]"> всему Узбекистану</span>
+             Завод по производству сэндвич-панелей с доставкой по 
+              <span className="text-[#df6500]"> всем странам СНГ</span>
             </h1>
             <p className="text-white max-[550px]:text-[16px] max-[1030px]:text-[27px] max-[670px]:text-[23px] text-2xl mt-7 min-[900px]:max-w-[70%] min-[1030px]:max-w-full">
               Мы производим и поставляем сэндвич-панели высокого качества для
