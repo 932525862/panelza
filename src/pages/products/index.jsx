@@ -1,7 +1,7 @@
 import React from "react";
-import wallMin from "../../assets/panelzaSP.jpg";
-import roofMin from "../../assets/new/new2.jpg";
-import wallPeno from "../../assets/new/new3.jpg";
+import wallMin from "../../assets/777.jpg";
+import roofMin from "../../assets/88888.jpg";
+import wallPeno from "../../assets/9999.jpg";
 import roofPeno from "../../assets/DSC07859.jpg";
 
 const products = [
