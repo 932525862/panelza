@@ -82,10 +82,10 @@ const Header = () => {
             ))}
             <li className="px-2 py-[1.5px] rounded-xl bg-[#df6500] hover:bg-[#df640000] border border-[#df6500]">
               <a
-                href="tel:+998909361795"
+                href="tel:+998774080005"
                 className="hover:text-[#df6500] transition duration-300"
               >
-                +998 90 936 17 95
+                +998 77 408 00 05
               </a>
             </li>
           </ul>
@@ -128,11 +128,11 @@ const Header = () => {
           </a>
         ))}
         <a
-          href="tel:+998909361795"
+          href="tel:+998774080005"
           onClick={() => setIsOpen(false)}
           className="px-2 py-[1.5px] rounded-xl bg-[#df6500] hover:bg-[#df640000] border border-[#df6500]"
         >
-          +998 90 936 17 95
+          +998 77 408 00 05
         </a>
       </div>
     </header>
