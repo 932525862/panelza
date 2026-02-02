@@ -1,9 +1,9 @@
 import Fotos1 from '../../assets/tashqi.jpg'
 import Fotos2 from '../../assets/fotos2.jpg'
-import Fotos3 from '../../assets/fotos3.jpg'
-import Fotos4 from '../../assets/fotos4.jpg'
-import Fotos5 from '../../assets/fotos5.jpg'
-import Fotos6 from '../../assets/fotos6.jpg'
+import Fotos3 from '../../assets/panelzaIm3.jpg'
+import Fotos4 from '../../assets/panelzamIm4.jpg'
+import Fotos5 from '../../assets/panelzaIm1.jpg'
+import Fotos6 from '../../assets/panelzaIm2.jpg'
 import Fotos7 from '../../assets/fotos7.jpg'
 import Fotos8 from '../../assets/fotos5.jpg'
 
