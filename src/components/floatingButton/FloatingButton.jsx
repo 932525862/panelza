@@ -37,7 +37,7 @@ const FloatingButton = () => {
         <FaTelegramPlane size={20} />
       </a>
       <a
-        href="tel:+998909361795"
+        href="tel:+998774080005"
         className=" bg-green-500 min-[1000px]:hidden flex justify-center text-white hover:bg-green-600 py-2 w-1/2"
       >
         <FaPhoneAlt size={18} />
