@@ -1,73 +1,9 @@
 import React from "react";
-import wallMin from "../../assets/777.jpg";
-import roofMin from "../../assets/88888.jpg";
-import wallPeno from "../../assets/9999.jpg";
-import roofPeno from "../../assets/DSC07859.jpg";
-
-const products = [
-  {
-    image: wallMin,
-    alt: "Стеновые СП из минеральной ваты",
-    title: "Стеновые СП из минеральной ваты",
-    specs: [
-      { label: "Толщина", value: "50, 80, 100, 120, 150мм" },
-      { label: "Плотность", value: "ρ=100кг/м3" },
-      { label: "Толщина стали", value: "0,45мм" },
-      { label: "Рабочая ширина", value: "1200мм" },
-      {
-        label: "Утеплитель",
-        value: "Минеральная плита на базальтовой основе",
-      },
-    ],
-    
-  },
-  {
-    image: roofMin,
-    alt: "Кровельные СП из минеральной ваты",
-    title: "Кровельные СП из минеральной ваты",
-    specs: [
-      { label: "Толщина", value: "50, 80, 100, 120, 150мм" },
-      { label: "Плотность", value: "ρ=100кг/м3" },
-      { label: "Толщина стали", value: "0,45мм" },
-      { label: "Рабочая ширина", value: "960мм" },
-      { label: "Высота волны", value: "h-35" },
-      {
-        label: "Утеплитель",
-        value: "Минеральная плита на базальтовой основе",
-      },
-    ],
-   
-  },
-  {
-    image: wallPeno,
-    alt: "Стеновые СП из пенополистирольных плит",
-    title: "Стеновые СП из пенополистирольных плит",
-    specs: [
-      { label: "Толщина", value: "50, 80, 100, 120, 150мм" },
-      { label: "Плотность", value: "ρ=10-20/м3" },
-      { label: "Толщина стали", value: "0,45мм" },
-      { label: "Рабочая ширина", value: "1200мм" },
-      { label: "Утеплитель", value: "Пенополистирольные плиты" },
-    ],
-    
-  },
-  {
-    image: roofPeno,
-    alt: "Кровельные СП из пенополистирольных плит",
-    title: "Кровельные СП из пенополистирольных плит",
-    specs: [
-      { label: "Толщина", value: "50, 80, 100, 120, 150мм" },
-      { label: "Плотность", value: "ρ=10-20/м3" },
-      { label: "Толщина стали", value: "0,45мм" },
-      { label: "Рабочая ширина", value: "960мм" },
-      { label: "Высота волны", value: "h-35" },
-      { label: "Утеплитель", value: "Пенополистирольные плиты" },
-    ],
-   
-  },
-];
+import images from "../../data/images";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 const Products = () => {
+  const { t } = useLanguage();
   return (
     <section
       id="products"
@@ -75,62 +11,49 @@ const Products = () => {
       aria-labelledby="products-heading"
     >
       <div className="container mx-auto">
-        <h2
-          id="products-heading"
-          className="text-2xl md:text-3xl font-bold text-white mb-10"
-        >
-          Наши Сэндвич-Панели
+        <h2 id="products-heading" className="text-2xl md:text-3xl font-bold text-white mb-4">
+          {t.products.heading}
         </h2>
+        <p className="text-[#d3d3d3] max-w-3xl mb-10">{t.products.intro}</p>
 
-        {/* RESPONSIVE GRID */}
-        <div
-          className="
-            grid
-            grid-cols-1
-            sm:grid-cols-2
-            lg:grid-cols-3
-            xl:grid-cols-4
-            gap-6
-          "
-        >
-          {products.map((product, index) => (
-            <article
-              key={index}
-              className="bg-white rounded-lg shadow-lg flex flex-col h-full hover:shadow-xl transition"
-            >
-              <img
-                src={product.image}
-                alt={product.alt}
-                className="w-full h-48 sm:h-52 object-cover rounded-t-lg"
-                loading="lazy"
-              />
-
-              <div className="p-5 flex flex-col flex-grow">
-                <h3 className="text-sm font-bold mb-3">
-                  {product.title}
-                </h3>
-
-                <ul className="text-xs text-gray-700 space-y-1 mb-4 flex-grow">
-                  {product.specs.map((spec, i) => (
-                    <li key={i}>
-                      <strong>{spec.label}:</strong> {spec.value}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* <p className="text-[#df6500] mb-4 text-sm">
-                  <strong className="text-black">Цена:</strong> {product.narx}
-                </p> */}
-
-                <a
-                  href="#contact"
-                  className="bg-[#df6500] text-white py-2 px-4 rounded text-center text-sm font-semibold hover:bg-[#c85b00] transition-colors"
-                >
-                  Заказать
-                </a>
-              </div>
-            </article>
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {t.products.items.map((product) => {
+            const img = images[product.key];
+            return (
+              <article
+                key={product.key}
+                className="bg-white rounded-lg shadow-lg flex flex-col h-full hover:shadow-xl transition"
+              >
+                <img
+                  src={img.src}
+                  width={img.width}
+                  height={img.height}
+                  alt={product.alt}
+                  className="w-full h-48 sm:h-52 object-cover rounded-t-lg"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="p-5 flex flex-col flex-grow">
+                  <h3 className="text-base font-bold mb-2">{product.title}</h3>
+                  <p className="text-sm text-gray-700 mb-3">{product.description}</p>
+                  <ul className="text-sm text-gray-700 space-y-1 mb-4 flex-grow">
+                    {product.specs.map(([label, value]) => (
+                      <li key={label}>
+                        <strong>{label}:</strong> {value}
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href="#contact"
+                    className="bg-[#df6500] text-white py-3 px-4 rounded text-center text-sm font-semibold hover:bg-[#c85b00] transition-colors"
+                  >
+                    {t.products.order}
+                    <span className="sr-only"> — {product.title}</span>
+                  </a>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

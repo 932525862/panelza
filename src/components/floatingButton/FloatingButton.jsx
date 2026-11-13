@@ -10,6 +10,7 @@ const FloatingButton = () => {
         href="https://t.me/ziko2302"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Telegram"
         whileHover={{ scale: 1.1 }}
         className="bg-blue-500 text-white max-[1000px]:hidden p-4 rounded-full shadow-lg hover:bg-blue-600 transition-colors duration-300"
         initial={{ scale: 1 }}
@@ -31,13 +32,15 @@ const FloatingButton = () => {
         <FaPhoneAlt size={18} />
       </motion.a> */}
       <a
-        href="https://t.me/ziko2302" // o'zingning username
+        href="https://t.me/ziko2302"
+        aria-label="Telegram"
         className=" bg-blue-500 min-[1000px]:hidden flex justify-center text-white hover:bg-blue-600 py-2 w-1/2"
       >
         <FaTelegramPlane size={20} />
       </a>
       <a
         href="tel:+998774080005"
+        aria-label="Call"
         className=" bg-green-500 min-[1000px]:hidden flex justify-center text-white hover:bg-green-600 py-2 w-1/2"
       >
         <FaPhoneAlt size={18} />

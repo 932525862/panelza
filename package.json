@@ -4,18 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-  "prebuild": "rimraf dist",
-  "dev": "vite",
-  "build": "vite build",
-  "lint": "eslint .",
-  "preview": "vite preview"
-}
-,
-  "reactSnap": {
-    "inlineCss": true,
-    "puppeteerArgs": [
-      "--no-sandbox"
-    ]
+    "dev": "vite",
+    "build": "rimraf dist dist-ssr && vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/prerender.mjs",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
@@ -23,12 +16,8 @@
     "framer-motion": "^12.23.9",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-helmet": "^6.1.0",
-    "react-helmet-async": "^2.0.5",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.7.0",
-    "react-snap": "^1.23.0",
-    "react-toastify": "^11.0.5",
     "sonner": "^2.0.6",
     "swiper": "^11.2.10",
     "tailwindcss": "^4.1.11"
@@ -43,6 +32,7 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
     "rimraf": "^6.0.1",
+    "sharp": "^0.35.5",
     "vite": "^7.0.4"
   }
 }

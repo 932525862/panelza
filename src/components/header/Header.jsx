@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from "react";
-import Logo from "../../assets/logo.png";
+import images from "../../data/images";
+import translations, { LANGS, PHONE, PHONE_RAW } from "../../i18n/translations";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 const Header = () => {
   const [activeSection, setActiveSection] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { t, language } = useLanguage();
 
   const menu = [
-    { id: "home", label: "Главная" },
-    { id: "products", label: "Что мы делаем" },
-    { id: "ourStory", label: "Наша история" },
-    { id: "projects", label: "Проекты" },
-    { id: "contact", label: "Контакт" },
-
+    { id: "home", label: t.menu.home },
+    { id: "products", label: t.menu.products },
+    { id: "features", label: t.menu.features },
+    { id: "ourStory", label: t.menu.ourStory },
+    { id: "projects", label: t.menu.projects },
+    { id: "faq", label: t.menu.faq },
+    { id: "contact", label: t.menu.contact },
   ];
 
   // Scroll active section
@@ -33,7 +37,7 @@ const Header = () => {
       setScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -53,19 +57,21 @@ const Header = () => {
     >
       <div className="container h-[90px] flex items-center justify-between relative z-[60]">
         {/* Logo */}
-        <div className="max-w-[60px] h-[73px]">
-          <a href="#home" aria-label="Home">
+        <div className="w-[60px] h-[73px]">
+          <a href={translations[language].path} aria-label="Panelza">
             <img
-              src={Logo}
-              alt="Company Logo"
+              src={images.logo.src}
+              width={images.logo.width}
+              height={images.logo.height}
+              alt={t.common.logoAlt}
               className="w-full h-full object-contain"
             />
           </a>
         </div>
 
         {/* Desktop Menu */}
-        <nav className="hidden lg:flex">
-          <ul className="flex items-center gap-6 text-white text-[18px] font-medium">
+        <nav className="hidden lg:flex" aria-label={t.common.mainNav}>
+          <ul className="flex items-center gap-3 xl:gap-6 text-white text-[15px] xl:text-[18px] font-medium">
             {menu.map((item) => (
               <li key={item.id}>
                 <a
@@ -82,21 +88,44 @@ const Header = () => {
             ))}
             <li className="px-2 py-[1.5px] rounded-xl bg-[#df6500] hover:bg-[#df640000] border border-[#df6500]">
               <a
-                href="tel:+998774080005"
+                href={`tel:${PHONE_RAW}`}
                 className="hover:text-[#df6500] transition duration-300"
               >
-                +998 77 408 00 05
+                {PHONE}
               </a>
             </li>
           </ul>
         </nav>
+
+        <div
+          className="hidden lg:flex items-center gap-2 text-white ml-6"
+          aria-label={t.common.switchLang}
+        >
+          {LANGS.map((code) => (
+            <a
+              key={code}
+              href={translations[code].path}
+              hrefLang={translations[code].htmlLang}
+              lang={translations[code].htmlLang}
+              aria-current={language === code ? "true" : undefined}
+              className={`px-3 py-1 rounded-lg border transition text-sm font-semibold ${
+                language === code
+                  ? "bg-[#df6500] text-[#08162b] border-[#df6500]"
+                  : "bg-transparent text-white border-white/30 hover:border-white"
+              }`}
+            >
+              {code.toUpperCase()}
+            </a>
+          ))}
+        </div>
 
         {/* Mobile Menu Icon */}
         <div className="lg:hidden z-[70]">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-white text-3xl focus:outline-none"
-            aria-label="Toggle Menu"
+            aria-label={t.common.menuToggle}
+            aria-expanded={isOpen}
           >
             {isOpen ? <HiX /> : <HiMenuAlt3 />}
           </button>
@@ -128,12 +157,29 @@ const Header = () => {
           </a>
         ))}
         <a
-          href="tel:+998774080005"
+          href={`tel:${PHONE_RAW}`}
           onClick={() => setIsOpen(false)}
           className="px-2 py-[1.5px] rounded-xl bg-[#df6500] hover:bg-[#df640000] border border-[#df6500]"
         >
-          +998 77 408 00 05
+          {PHONE}
         </a>
+        <div className="flex items-center gap-3 text-base">
+          {LANGS.map((code) => (
+            <a
+              key={code}
+              href={translations[code].path}
+              hrefLang={translations[code].htmlLang}
+              lang={translations[code].htmlLang}
+              className={`px-4 py-2 rounded-lg border font-semibold ${
+                language === code
+                  ? "bg-[#df6500] text-[#08162b] border-[#df6500]"
+                  : "border-white/30"
+              }`}
+            >
+              {code.toUpperCase()}
+            </a>
+          ))}
+        </div>
       </div>
     </header>
   );

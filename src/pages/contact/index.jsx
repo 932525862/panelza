@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { toast } from "react-toastify";
-import Panel from "../../assets/new/new3.jpg";
-import "react-toastify/dist/ReactToastify.css";
-import Logo from "../../assets/panelzalogo.png";
+import { toast } from "sonner";
+import images from "../../data/images";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 
 function Contact() {
+  const { t } = useLanguage();
+  const Panel = images.hero.src;
+  const Logo = images["logo-wide"].src;
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("+998 ");
 
@@ -34,13 +36,13 @@ function Contact() {
     const digits = phone.replace(/\D/g, "").slice(3);
 
     if (digits.length !== 9) {
-      toast.error("Телефон номер введен не полностью!");
+      toast.error(t.contact.phoneError);
       return;
     }
 
     const formattedPhone =
       "+998 " + digits.replace(/(\d{2})(\d{3})(\d{2})(\d{2})/, "$1 $2 $3 $4");
-    const text = `📩 Новая заявка!\n\n👤 Имя: ${name}\n📞 Телефон: ${formattedPhone}`;
+    const text = `📩 ${t.contact.leadTitle}\n\n👤 ${t.contact.leadName}: ${name}\n📞 ${t.contact.leadPhone}: ${formattedPhone}\n🌐 ${window.location.href}`;
 
     try {
       const response = await fetch(
@@ -54,14 +56,14 @@ function Contact() {
 
       const data = await response.json();
       if (data.ok) {
-        toast.success("Успешно отправлено!");
+        toast.success(t.contact.success);
         setName("");
         setPhone("+998 ");
       } else {
-        toast.error("Ошибка при отправке! Проверьте токен или chat_id.");
+        toast.error(t.contact.sendError);
       }
-    } catch (err) {
-      toast.error("Произошла ошибка!");
+    } catch {
+      toast.error(t.contact.sendError);
     }
   };
 
@@ -71,32 +73,36 @@ function Contact() {
       className="w-full h-auto lg:h-[650px] min-[633px]:h-[550px] bg-no-repeat relative py-7"
     >
       {/* Background image only on large screens */}
-      <div
-        className="hidden lg:block absolute inset-0 bg-cover bg-center z-0"
-        style={{ backgroundImage: `url(${Panel})` }}
+      <img
+        src={Panel}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        decoding="async"
+        className="hidden lg:block absolute inset-0 w-full h-full object-cover z-0"
       />
       <div className="hidden lg:block w-full h-full absolute top-0 left-0 z-10 bg-black/20"></div>
 
       {/* Mobile header (visible on small screens) */}
       <div className="lg:hidden w-full bg-[#071b3a] text-white py-8 px-6">
         <div className="max-w-screen-sm mx-auto">
-          <img src={Logo} alt="logo" className="w-40 mx-auto mb-4" />
-          <h1 className="text-5xl font-bold">Каталог</h1>
+          <img src={Logo} width={160} height={160} alt={t.common.logoAlt} loading="lazy" className="w-40 mx-auto mb-4" />
+          <h2 className="text-3xl font-bold">{t.contact.heading}</h2>
           <div className="w-28 h-1 bg-white my-4"></div>
-          <p className="text-lg font-medium max-w-md">Завод по производству сэндвич панелей</p>
+          <p className="text-lg font-medium max-w-md">{t.contact.tagline}</p>
         </div>
       </div>
 
       {/* Mobile image shown under header */}
-      <img src={Panel} alt="panel" className="w-full lg:hidden object-cover h-56" />
+      <img src={Panel} width={images.hero.width} height={images.hero.height} alt={t.contact.panelAlt} loading="lazy" decoding="async" className="w-full lg:hidden object-cover h-56" />
 
       <div className="container h-auto px-4 py-8 pb-28 flex items-center justify-center lg:absolute top-0 left-0 z-20">
         <div className="w-full flex flex-wrap items-center">
           <div className="hidden lg:flex w-full lg:w-1/2 px-6 flex-col items-start justify-center text-white py-8 transform lg:-translate-y-12 lg:pl-20">
-            <img src={Logo} alt="logo" className="w-48 lg:w-56 mb-5" />
-            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold">Каталог</h1>
+            <img src={Logo} width={224} height={224} alt="" aria-hidden="true" loading="lazy" className="w-48 lg:w-56 mb-5" />
+            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold">{t.contact.heading}</h2>
             <div className="w-32 lg:w-36 h-1 bg-white my-4"></div>
-            <p className="text-base lg:text-xl font-medium max-w-lg">Завод по производству сэндвич панелей</p>
+            <p className="text-base lg:text-xl font-medium max-w-lg">{t.contact.tagline}</p>
           </div>
 
           <div className="w-full lg:w-1/2 px-6 flex items-center justify-center lg:justify-end py-8">
@@ -104,16 +110,19 @@ function Contact() {
               onSubmit={sendMessage}
               className="mt-6 max-w-[420px] w-full space-y-6 p-8 bg-black/60 rounded-lg shadow-xl shadow-[#00000066] relative z-30 mb-8 lg:mb-0"
             >
-              <h2 className="text-2xl font-medium text-white text-center lg:text-left">
-                Каталог с ценами и описанием каждой позиции
-              </h2>
+              <h3 className="text-2xl font-medium text-white text-center lg:text-left">
+                {t.contact.formTitle}
+              </h3>
               <p className="text-center lg:text-left text-md font-medium text-white">
-                Заполните форму и получите каталог нашей продукции
+                {t.contact.formText}
               </p>
 
               <input
                 type="text"
-                placeholder="Ваше имя"
+                name="name"
+                autoComplete="name"
+                aria-label={t.contact.name}
+                placeholder={t.contact.name}
                 className="w-full border p-3 rounded bg-white outline-0"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -121,7 +130,11 @@ function Contact() {
               />
 
               <input
-                type="text"
+                type="tel"
+                name="phone"
+                autoComplete="tel"
+                inputMode="tel"
+                aria-label={t.contact.phone}
                 placeholder="+998 90 123 45 67"
                 className="w-full border p-3 rounded bg-white outline-0"
                 value={phone}
@@ -134,7 +147,7 @@ function Contact() {
                 type="submit"
                 className="bg-[#df6500] text-white hover:text-[#df6500] cursor-pointer px-4 py-3 rounded-md border-[1.5px] border-[#90450c] hover:bg-transparent w-full duration-400"
               >
-                Отправить
+                {t.contact.submit}
               </button>
             </form>
           </div>

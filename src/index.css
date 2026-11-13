@@ -12,3 +12,7 @@ html {
 body {
   background-color:#08162b;
 }
+/* Qotirilgan header ostida anker bo'limlari yashirinmasligi uchun */
+section[id] {
+  scroll-margin-top: 90px;
+}
